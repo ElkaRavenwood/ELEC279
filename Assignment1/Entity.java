@@ -8,7 +8,10 @@
  * prints the object's information and another that compares two entities
  */
 
+// imports
+import java.lang.String;
 
+// start of class
 public class Entity {
 
 	private String name;
