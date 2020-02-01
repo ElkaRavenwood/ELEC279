@@ -1,6 +1,7 @@
 /*
  * ELEC 279 - Assignment 1
  * Author: Jamie Won
+ * Student Number: 20113217
  * Date: January 29, 2020
  * Contents: A class called GuessMaster that runs a guessing game
  * of a noun and its birthday.
@@ -87,11 +88,11 @@ public class GuessMaster {
 			String in = s.nextLine();
 			
 			// if user inputs quit, exits
-			if (in.equals("quit")) {
+			if (in.equalsIgnoreCase("quit")) {
 				System.out.println("Quitting...");
 				System.exit(0);
 			}
-			
+
 			// Converts to date
 			Date result = new Date(in);
 
@@ -117,10 +118,14 @@ public class GuessMaster {
 
 	// start of playGame - just calls the previous
 	public void playGame (int entityInd) {
+		// checks if any entities
+		if (this.numberOfCandidateEntities == 0) {
+			System.out.println("No entities");
+		}
 		// checks if invalid index (larger than amount of entries
 		if (entityInd >= this.numberOfCandidateEntities) {
-			System.out.println("Invalid Entity Index. Fatal Error");
-			System.exit(0);
+			System.out.println("Invalid Entity Index. Choosing from available....");
+			this.playGame(genRandomEntity());
 		}
 		// calls other list
 		this.playGame(this.entities[entityInd]);

@@ -1,6 +1,7 @@
 /*
  * ELEC 279 - Assignment 1
  * Author (of specified constructor): Jamie Won
+ * Student Number: 20113217
  * Date: January 29, 2020
  * Contents: a constructor when a date is given in the format "mm/dd/yy"
  */

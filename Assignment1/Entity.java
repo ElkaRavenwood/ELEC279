@@ -1,14 +1,12 @@
 /*
  * ELEC 279 - Assignment 1
  * Author: Jamie Won
+ * Student Number: 20113217
  * Date: January 29, 2020
  * Contents: A class called entity with class variables String name, Date born
  * Contains a corresponding constructor for each in Date, as well as a toString method that
  * prints the object's information and another that compares two entities
  */
-
-// import statement
-// import java.util.String;
 
 
 public class Entity {
