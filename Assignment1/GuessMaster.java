@@ -163,10 +163,17 @@ public class GuessMaster {
 		gm.addEntity(dion);
 		gm.addEntity(usa);
 
+		// creates entities, then a guessmaster
+		// Entity[] ents = new Entity[3];
+		// ents[0] = trudeau;
+		// ents[1] = dion;
+		// ents[2] = usa;
+		// GuessMaster gm = new GuessMaster(ents); 
+
 		// plays game
 		gm.playGame();
-		// gm.playGame(trudeau);
-		// gm.playGame(2);
+		// gm.playGame(trudeau); // selected entity
+		// gm.playGame(3); // invalid index case
 
 	}
 }
