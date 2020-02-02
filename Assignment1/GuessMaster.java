@@ -89,6 +89,9 @@ public class GuessMaster {
 			
 			// if user inputs quit, exits
 			if (in.equalsIgnoreCase("quit")) {
+				// closes Scanner
+				s.close();
+				// outputs message, exits
 				System.out.println("Quitting...");
 				System.exit(0);
 			}
@@ -103,6 +106,8 @@ public class GuessMaster {
 				System.out.println("BINGO! You got it!");
 				// starts next game
 				this.playGame(genRandomEntity());
+				// closes Scanner
+				s.close();
 				// exits loop
 				return;
 				
