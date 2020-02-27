@@ -1,7 +1,7 @@
-/*
- * Author: Jamie Won
+/**
  * Date: February 14, 2020
  * Lab 2: Part 1
+ * @author: Jamie Won
  */
 
 public class Student extends Person {
@@ -12,7 +12,7 @@ public class Student extends Person {
 	private int[] grades;
 	static final int maxCourses = 20;
 
-	/** GradStudent
+	/** Student
 	 * constructor
 	 * @param name the student's name
 	 * @param address the student's address
@@ -25,7 +25,7 @@ public class Student extends Person {
 		grades = new int [maxCourses];
 	}
 
-	/** toString
+	/**
 	 * Overrides the person's toString
 	 * @return the new string to be returned, marks as a student
 	 */
@@ -33,7 +33,7 @@ public class Student extends Person {
 		return "Student: " + super.toString();
 	}
 
-	/** addGrade
+	/** 
 	 * Adds a grade to the GradStudent
 	 * @param code the course code
 	 * @param grade the grade of the course 
@@ -48,8 +48,8 @@ public class Student extends Person {
 
 	}
 
-	/** printExamGrades
-	 * prints the course  grades
+	/**
+	 * Prints the course grades
 	 */
 	public void printGrades () {
 		for (int i = 0; i < courses; i ++) System.out.println(codes[i] + ":" + grades[i]);		
