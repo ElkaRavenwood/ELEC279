@@ -4,13 +4,15 @@
  * Date: March 12, 2020
  * @author Jamie Won
  */
-package Assignment2
+package Assignment2;
+
+import Assignment1.*;
 
 /**
  * A class representing a country
  * Inherits from entity
  */
-public class Country extends Assignment1.Entity {
+public class Country extends Entity {
 
 	private String capital;
 
@@ -23,8 +25,8 @@ public class Country extends Assignment1.Entity {
 	 */
 	public Country (String capital, String name, Date born) {
 		this.capital = capital;
-		this.name = name;
-		this.born = new Date(born);
+		this.setName(name);
+		this.setBorn(new Date(born));
 	}
 
 	/**
@@ -42,8 +44,8 @@ public class Country extends Assignment1.Entity {
 	 * @param country the country to be copied
 	 */
 	public Country (Country country) {
-		this.name = country.getName();
-		this.born = new Date (country.getBorn());
+		this.setName( country.getName());
+		this.setBorn(new Date (country.getBorn()));
 		this.capital = country.getCapital();
 	}
 
@@ -69,6 +71,14 @@ public class Country extends Assignment1.Entity {
 	 */
 	public Country clone (Country country) {
 		return new Country(country);
+	}
+
+	/** 
+	 * Overrides abstract clone
+	 * @return the entity
+	 */
+	public Entity clone () {
+		return (Entity) clone(this);
 	}
 
 	/**
