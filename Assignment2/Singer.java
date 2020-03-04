@@ -4,7 +4,7 @@
  * Date: March 12, 2020
  * @author Jamie Won
  */
-package Assignment2;
+// package Assignment2;
 
 import Assignment1.*;
 
@@ -19,20 +19,21 @@ public class Singer extends Person {
 
 	/**
 	 * General Constructor
-	 * Sets to specified gender, name, date
-	 * @param debutAlbum the name of the debut album
-	 * @param debutAlbumReleaseDate the release date of the debut album
-	 * @param gender the gender of the singer
+	 * Sets to specified gender, name, date, album, album release date, difficulty
 	 * @param name the name of the singer
 	 * @param born the singer's birthdate
+	 * @param gender the gender of the singer
+	 * @param debutAlbum the name of the debut album
+	 * @param debutAlbumReleaseDate the release date of the debut album
+	 * @param difficulty the singer's difficulty
 	 */
-	public Singer (String debutAlbum, Date debutAlbumReleaseDate, String gender, String name, Date born) {
+	public Singer (String name, Date born, String gender, String debutAlbum, Date debutAlbumReleaseDate, double difficulty) {
 		this.setName(name);
 		this.setBorn(new Date(born));
 		this.setGender(gender);
 		this.debutAlbum = debutAlbum;
 		this.debutAlbumReleaseDate = new Date (debutAlbumReleaseDate);
-		
+		this.setDifficulty(difficulty);
 	}
 
 	/**
@@ -56,6 +57,7 @@ public class Singer extends Person {
 		this.setGender(singer.getGender());
 		this.debutAlbum = singer.getDebutAlbum();
 		this.debutAlbumReleaseDate = new Date (singer.getDebutAlbumReleaseDate());
+		this.setDifficulty(singer.getDifficulty());
 	}
 
 	/** 
@@ -98,14 +100,6 @@ public class Singer extends Person {
 		return new Singer(singer);
 	}
 
-	// /** 
-	//  * Overrides abstract clone
-	//  * @return the entity
-	//  */
-	// public Entity clone () {
-	// 	return (Entity) clone(this);
-	// }
-	
 	/**
 	 * Displays information of singer
 	 * @return the converted information
@@ -119,7 +113,7 @@ public class Singer extends Person {
 	 * @return the entity type
 	 */
 	public String entityType () {
-		return "This entity is a singer!";
+		return "singer";
 	}
 
 }

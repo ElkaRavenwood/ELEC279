@@ -4,7 +4,7 @@
  * Date: March 12, 2020
  * @author Jamie Won
  */
-package Assignment2;
+// package Assignment2;
 
 import Assignment1.*;
 
@@ -19,14 +19,16 @@ public class Person extends Entity {
 	/**
 	 * General Constructor
 	 * Sets to specified gender, name, date
-	 * @param gender the name of the gender
 	 * @param name the name of the person
 	 * @param born the person's birthdate
+	 * @param gender the name of the gender
+	 * @param difficulty the person's difficulty
 	 */
-	public Person (String gender, String name, Date born) {
+	public Person (String name, Date born, String gender, double difficulty) {
 		this.gender = gender;
 		this.setName(name);
 		this.setBorn(new Date(born));
+		this.setDifficulty(difficulty);
 	}
 
 	/**
@@ -47,6 +49,7 @@ public class Person extends Entity {
 		this.setName(person.getName());
 		this.setBorn(new Date (person.getBorn()));
 		this.gender = person.getGender();
+		this.setDifficulty(person.getDifficulty());
 	}
 
 	/** 
@@ -80,7 +83,7 @@ public class Person extends Entity {
 	public Entity clone () {
 		return (Entity) clone(this);
 	}
-	
+
 	/**
 	 * Displays information of person
 	 * @return the converted information
@@ -94,6 +97,6 @@ public class Person extends Entity {
 	 * @return the entity type
 	 */
 	public String entityType () {
-		return "This entity is a person!";
+		return "person";
 	}
 }

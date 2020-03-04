@@ -4,7 +4,7 @@
  * Date: March 12, 2020
  * @author Jamie Won
  */
-package Assignment2;
+// package Assignment2;
 
 import Assignment1.*;
 
@@ -18,17 +18,19 @@ public class Politician extends Person {
 	
 	/**
 	 * General Constructor
-	 * Sets to specified gender, name, date
-	 * @param party the name of the party
-	 * @param gender the gender of the politician
+	 * Sets to specified gender, name, date, party, difficulty
 	 * @param name the name of the politician
 	 * @param born the politician's birthdate
+	 * @param gender the gender of the politician
+	 * @param party the name of the party
+	 * @param difficulty the politician's difficulty
 	 */
-	public Politician (String party, String gender, String name, Date born) {
+	public Politician (String name, Date born, String gender, String party, double difficulty) {
 		this.setName(name);
 		this.setBorn(new Date(born));
 		this.setGender(gender);
 		this.party = party;
+		this.setDifficulty(difficulty);
 	}
 
 	/**
@@ -50,6 +52,7 @@ public class Politician extends Person {
 		this.setBorn(new Date (politician.getBorn()));
 		this.setGender(politician.getGender());
 		this.party = politician.getParty();
+		this.setDifficulty(politician.getDifficulty());
 	}
 
 	/** 
@@ -89,7 +92,7 @@ public class Politician extends Person {
 	 * @return the entity type
 	 */
 	public String entityType () {
-		return "This entity is a politician!";
+		return "politician";
 	}
 
 }

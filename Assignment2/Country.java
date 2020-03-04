@@ -4,7 +4,7 @@
  * Date: March 12, 2020
  * @author Jamie Won
  */
-package Assignment2;
+// package Assignment2;
 
 import Assignment1.*;
 
@@ -22,11 +22,13 @@ public class Country extends Entity {
 	 * @param capital the name of the capital
 	 * @param name the name of the country
 	 * @param born the country's birthdate
+	 * @param difficulty the country's difficulty
 	 */
-	public Country (String capital, String name, Date born) {
+	public Country (String name, Date born, String capital, double difficulty) {
 		this.capital = capital;
 		this.setName(name);
 		this.setBorn(new Date(born));
+		this.setDifficulty(difficulty);
 	}
 
 	/**
@@ -47,6 +49,7 @@ public class Country extends Entity {
 		this.setName( country.getName());
 		this.setBorn(new Date (country.getBorn()));
 		this.capital = country.getCapital();
+		this.setDifficulty(country.getDifficulty());
 	}
 
 	/** 
@@ -94,6 +97,6 @@ public class Country extends Entity {
 	 * @return the entity type
 	 */
 	public String entityType () {
-		return "This entity is a country!";
+		return "country";
 	}
 }
