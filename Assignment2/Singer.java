@@ -22,12 +22,14 @@ public class Singer extends Person {
 	 * Sets to specified gender, name, date
 	 * @param debutAlbum the name of the debut album
 	 * @param debutAlbumReleaseDate the release date of the debut album
+	 * @param gender the gender of the singer
 	 * @param name the name of the singer
 	 * @param born the singer's birthdate
 	 */
-	public Singer (String debutAlbum, Date debutAlbumReleaseDate, String name, Date born) {
+	public Singer (String debutAlbum, Date debutAlbumReleaseDate, String gender, String name, Date born) {
 		this.setName(name);
 		this.setBorn(new Date(born));
+		this.setGender(gender);
 		this.debutAlbum = debutAlbum;
 		this.debutAlbumReleaseDate = new Date (debutAlbumReleaseDate);
 		
@@ -51,6 +53,7 @@ public class Singer extends Person {
 	public Singer (Singer singer) {
 		this.setName(singer.getName());
 		this.setBorn(new Date (singer.getBorn()));
+		this.setGender(singer.getGender());
 		this.debutAlbum = singer.getDebutAlbum();
 		this.debutAlbumReleaseDate = new Date (singer.getDebutAlbumReleaseDate());
 	}
