@@ -15,6 +15,7 @@ import Assignment1.*;
 public class Person extends Entity {
 
 	private String gender;
+	private String entityType;
 
 	/**
 	 * General Constructor

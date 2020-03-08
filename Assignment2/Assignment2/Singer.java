@@ -16,6 +16,7 @@ public class Singer extends Person {
 
 	private String debutAlbum;
 	private Date debutAlbumReleaseDate;
+	private String entityType;
 
 	/**
 	 * General Constructor

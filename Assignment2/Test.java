@@ -1,6 +1,7 @@
 // package Assignment2;
 
 import Assignment1.*;
+import Assignment2.*;
 
 public class Test {
 

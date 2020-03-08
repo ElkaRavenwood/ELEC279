@@ -15,6 +15,7 @@ import Assignment1.*;
 public class Politician extends Person {
 
 	private String party;
+	private String entityType;
 	
 	/**
 	 * General Constructor

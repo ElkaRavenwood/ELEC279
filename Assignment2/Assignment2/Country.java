@@ -15,6 +15,7 @@ import Assignment1.*;
 public class Country extends Entity {
 
 	private String capital;
+	private String entityType;
 
 	/**
 	 * General Constructor

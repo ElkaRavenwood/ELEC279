@@ -45,7 +45,10 @@ public class GuessMaster {
 		System.out.println("Welcome. Let us play GuessMaster.");
 	}
 
-	// start of addEntity
+	/**
+	 * Adds a country to the entity list
+	 * @param country the country to be added
+	 */
 	public void addEntity (Entity entity) {
 		
 		// checks if parameter exists
@@ -65,16 +68,16 @@ public class GuessMaster {
 			}
 			// adds enw entity
 			// finds type of entity
-			String entityType = entity.entityType;
+			String entityType = entity.entityType();
 			Entity e;
 			if (entityType == "country") {
 				e = new Country (entity.getName(), entity.getBorn(), entity.getCapital(), entity.getDifficulty());
 			} else if (entityType == "person") {
 				e = new Person (entity.getName(), entity.getBorn(), entity.getGender(), entity.getDifficulty());
 			} else if (entityType == "politician") {
-				e = new Person (entity.getName(), entity.getBorn(), entity.getGender(), entity.getParty(), entity.getDifficulty());
+				e = new Politician (entity.getName(), entity.getBorn(), entity.getGender(), entity.getParty(), entity.getDifficulty());
 			} else {
-				e = new Person (entity.getName(), entity.getBorn(), entity.getGender(), entity.getDebutAlbum(), entity.getDebutAlbumDate(), entity.getDifficulty());
+				e = new Singer (entity.getName(), entity.getBorn(), entity.getGender(), entity.getDebutAlbum(), entity.getDebutAlbumReleaseDate(), entity.getDifficulty());
 			}
 			temp[this.numberOfCandidateEntities -1] = e;
 			// sets new list

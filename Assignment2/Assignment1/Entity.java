@@ -20,7 +20,7 @@ abstract public class Entity {
 	private String name;
 	private Date born;
 	private double difficulty;
-
+	
 	/**
 	 * A constructor for the generic case of an Entity
 	 * @param name The name of the entity
