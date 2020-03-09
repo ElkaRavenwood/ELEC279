@@ -121,7 +121,7 @@ abstract public class Entity {
 	 * @return The calculated ticket number
 	*/
 	public int getAwardedTicketNumber() {
-		return (int)difficulty*100;
+		return (int)(difficulty*100);
 	}
 
 	/**
