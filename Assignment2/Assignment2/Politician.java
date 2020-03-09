@@ -30,7 +30,7 @@ public class Politician extends Person {
 		this.setName(name);
 		this.setBorn(new Date(born));
 		this.setGender(gender);
-		if (part == null) part = "NoParty";
+		if (party == null) party = "NoParty";
 		this.party = party;
 		this.setDifficulty(difficulty);
 	}

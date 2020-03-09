@@ -91,7 +91,7 @@ public class Person extends Entity {
 	 * @return the converted information
 	 */
 	 public String toString () {
-		return super.toString() + "The gender is " + this.gender + ".";
+		return super.toString() + "The gender is " + this.gender + ". ";
 	}
 
 	/**

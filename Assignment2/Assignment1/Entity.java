@@ -103,7 +103,7 @@ abstract public class Entity {
 	 * @return the entity's details
 	 */
 	public String toString () {
-		return (this.name + ", born on " + this.born.toString());
+		return (this.name + ", born on " + this.born.toString() + ". ");
 	}
 
 	/**
