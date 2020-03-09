@@ -72,7 +72,7 @@ public class Date
         if (aDate == null)//Not a real date.
         {
              System.out.println("Fatal Error.");
-             System.exit(0);
+             System.exit(1);
         }
 
         month = aDate.month;
@@ -91,7 +91,7 @@ public class Date
         else
         {
             System.out.println("Fatal Error");
-            System.exit(0);
+            System.exit(1);
         }
     }
 
@@ -106,7 +106,7 @@ public class Date
         else
         {
             System.out.println("Fatal Error");
-            System.exit(0);
+            System.exit(1);
         }
     }
 
@@ -120,7 +120,7 @@ public class Date
         if ( (year < 1000) || (year > 9999) )
         {
             System.out.println("Fatal Error");
-            System.exit(0);
+            System.exit(1);
         }
         else
             this.year = year;
@@ -130,7 +130,7 @@ public class Date
         if ((monthNumber <= 0) || (monthNumber > 12))
         {
             System.out.println("Fatal Error");
-            System.exit(0);
+            System.exit(1);
         }
         else
             month = monthString(monthNumber);
@@ -141,7 +141,7 @@ public class Date
         if ((day <= 0) || (day > 31))
         {
             System.out.println("Fatal Error");
-            System.exit(0);
+            System.exit(1);
         }
         else
             this.day = day;
@@ -176,7 +176,7 @@ public class Date
         else
         {
             System.out.println("Fatal Error");
-            System.exit(0);
+            System.exit(1);
             return 0; //Needed to keep the compiler happy
         }
     }
@@ -288,7 +288,7 @@ public class Date
             return "December";
         default:
             System.out.println("Fatal Error");
-            System.exit(0);
+            System.exit(1);
             return "Error"; //to keep the compiler happy
         }
     }

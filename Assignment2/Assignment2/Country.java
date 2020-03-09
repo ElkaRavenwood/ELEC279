@@ -26,6 +26,7 @@ public class Country extends Entity {
 	 * @param difficulty the country's difficulty
 	 */
 	public Country (String name, Date born, String capital, double difficulty) {
+		if (capital == null) capital = "NoCapital"
 		this.capital = capital;
 		this.setName(name);
 		this.setBorn(new Date(born));

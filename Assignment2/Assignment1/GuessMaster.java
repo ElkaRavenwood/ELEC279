@@ -30,7 +30,7 @@ public class GuessMaster {
 		// checks if values given exist
 		if (entities == null) {
 			System.out.println("Invalid Entities. Fatal Error");
-			System.exit(0);
+			System.exit(1);
 		}
 		// sets parameters to class variables
 		this.entities = entities.clone();

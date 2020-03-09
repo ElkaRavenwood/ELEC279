@@ -32,6 +32,7 @@ public class Singer extends Person {
 		this.setName(name);
 		this.setBorn(new Date(born));
 		this.setGender(gender);
+		if (debutAlbum == null) debutAlbum = "NoAlbum";
 		this.debutAlbum = debutAlbum;
 		this.debutAlbumReleaseDate = new Date (debutAlbumReleaseDate);
 		this.setDifficulty(difficulty);

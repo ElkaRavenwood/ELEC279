@@ -26,6 +26,7 @@ public class Person extends Entity {
 	 * @param difficulty the person's difficulty
 	 */
 	public Person (String name, Date born, String gender, double difficulty) {
+		if (gender == null) gender = "NoGender";
 		this.gender = gender;
 		this.setName(name);
 		this.setBorn(new Date(born));

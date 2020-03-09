@@ -29,7 +29,7 @@ abstract public class Entity {
 	public Entity(String name, Date born) {
 		if (name == null || born == null || name == "") {
 			System.out.println("Fatal Error");
-			System.exit(0);
+			System.exit(1);
 		}
 		this.name = name;
 		this.born = new Date(born);
