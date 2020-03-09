@@ -107,7 +107,7 @@ public class Singer extends Person {
 	 * @return the converted information
 	 */
 	 public String toString () {
-		return super.toString() + "The debut album name is " + this.debutAlbum + " and its release date is " + this.debutAlbumReleaseDate +".";
+		return super.toString() + "\nDebut Album: " + this.debutAlbum + "\nRelease Date: " + this.debutAlbumReleaseDate;
 	}
 
 	/**

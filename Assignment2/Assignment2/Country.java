@@ -91,7 +91,7 @@ public class Country extends Entity {
 	 * @return the converted information
 	 */
 	 public String toString () {
-		return super.toString() + "The capital is " + this.capital + ".";
+		return super.toString() + "\nCapital: " + this.capital;
 	}
 
 	/**

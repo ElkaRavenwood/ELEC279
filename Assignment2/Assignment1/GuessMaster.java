@@ -129,9 +129,11 @@ public class GuessMaster {
 				// increments tickets
 				tickets += entity.getAwardedTicketNumber();
 				// Tickets awarded
-				System.out.println("You won " + entity.getAwardedTicketNumber() + " tickets! ");
+				System.out.println("You won " + entity.getAwardedTicketNumber() + " tickets this round. ");
 				// total tickets
-				System.out.println("You have won a total of " + tickets + " tickets. ");
+				System.out.println("The total number of your tickets is  " + tickets + ". ");
+				// closing message
+				System.out.println(entity.closingMessage());
 				// starts next game
 				this.playGame(genRandomEntity());
 				// closes Scanner

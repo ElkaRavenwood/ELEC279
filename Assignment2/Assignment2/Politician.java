@@ -86,7 +86,7 @@ public class Politician extends Person {
 	 * @return the converted information
 	 */
 	 public String toString () {
-		return super.toString() + "The party is " + this.party + ".";
+		return super.toString() + "\nParty: " + this.party;
 	}
 
 	/**
