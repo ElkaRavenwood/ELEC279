@@ -71,14 +71,15 @@ public class GuessMaster {
 			String entityType = entity.entityType();
 			Entity e;
 			if (entityType == "country") {
-				e = new Country (entity.getName(), entity.getBorn(), entity.getCapital(), entity.getDifficulty());
-			} else if (entityType == "person") {
-				e = new Person (entity.getName(), entity.getBorn(), entity.getGender(), entity.getDifficulty());
+				e = (Country) entity;
+			} else if (entityType == "singer") {
+				e = (Singer) entity;
 			} else if (entityType == "politician") {
-				e = new Politician (entity.getName(), entity.getBorn(), entity.getGender(), entity.getParty(), entity.getDifficulty());
+				e = (Politician) entity;
 			} else {
-				e = new Singer (entity.getName(), entity.getBorn(), entity.getGender(), entity.getDebutAlbum(), entity.getDebutAlbumReleaseDate(), entity.getDifficulty());
+				e = (Person) entity;
 			}
+			System.out.println(e.toString());
 			temp[this.numberOfCandidateEntities -1] = e;
 			// sets new list
 			this.entities = temp;
