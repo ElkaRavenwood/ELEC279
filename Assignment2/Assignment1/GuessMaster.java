@@ -24,6 +24,7 @@ public class GuessMaster {
 	// class variables
 	private int numberOfCandidateEntities;
 	private Entity[] entities;
+	private int tickets = 0;
 
 	// constructor
 	public GuessMaster (Entity[] entities) {
@@ -79,7 +80,7 @@ public class GuessMaster {
 			} else {
 				e = (Person) entity;
 			}
-			System.out.println(e.toString());
+			// adds entity to list
 			temp[this.numberOfCandidateEntities -1] = e;
 			// sets new list
 			this.entities = temp;
@@ -97,8 +98,8 @@ public class GuessMaster {
 		// makes keyboard Scanner
 		Scanner s = new Scanner(System.in);
 
-		// makes variable to keep looping
-		// boolean gameOver = false;
+		// Welcome message
+		System.out.println(entity.welcomeMessage());
 
 		// introduces game, asks for guess
 		System.out.println("Please guess the birthday of " + entity.getName() + ". Please enter the date in the format of mm/dd/yyyy");
@@ -125,6 +126,12 @@ public class GuessMaster {
 			if (entity.getBorn().equals(result)) {
 				// win statement
 				System.out.println("BINGO! You got it!");
+				// increments tickets
+				tickets += entity.getAwardedTicketNumber();
+				// Tickets awarded
+				System.out.println("You won " + entity.getAwardedTicketNumber() + " tickets! ");
+				// total tickets
+				System.out.println("You have won a total of " + tickets + " tickets. ");
 				// starts next game
 				this.playGame(genRandomEntity());
 				// closes Scanner
