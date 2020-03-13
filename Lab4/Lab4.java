@@ -23,7 +23,7 @@ public class Lab4 {
         // 	System.out.println(temp.toString());
         // }
         
-        // // Part 2
+        // Part 2
         Invoice[] bills = new Invoice[5];
         for(int i = 0; i < 5; i++){
         	bills[i] = new Invoice("Company" + (5-i), 300.0 - 50.0*i);
@@ -39,10 +39,10 @@ public class Lab4 {
         	System.out.println(temp.toString());
         }
         
-        // // Part 3
-        // for(PayAble temp : (PayAble[])bills){
-        // 	temp.printPayment();
-        // }
+        // Part 3
+        for(PayAble temp : (PayAble[])bills){
+        	temp.printPayment();
+        }
         
         // // Part 4
         // PayAble[] pending = new PayAble[10];
