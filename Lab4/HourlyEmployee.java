@@ -7,7 +7,7 @@ import java.util.Date;
  indicates no real hire date specified yet.
 */
 public class HourlyEmployee extends Employee
-                            implements Cloneable, Comparable <HourlyEmployee>
+                            implements Cloneable, Comparable <HourlyEmployee>, PayAble
 {
     private double wageRate;
     private double hours; //for the month
@@ -124,6 +124,21 @@ public class HourlyEmployee extends Employee
      */
     public int compareTo(HourlyEmployee anotherWorker) {
         return this.getName().compareTo(anotherWorker.getName());
+    }
+
+    /**
+     * Used in printPayment. Finds the amount to pay
+     * @return the amount to pay
+     */
+    public double amountToPay() {
+        return wageRate*hours;
+    }
+
+    /**
+     * Prints out information on the payment.
+     */
+    public void printPayment() {
+        System.out.println("Payment information for an hourly employee. Employee name: " + this.getName() + "; payment " + amountToPay() +".");
     }
 
 }

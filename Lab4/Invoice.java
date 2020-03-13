@@ -57,13 +57,6 @@ public class Invoice implements Comparable<Invoice>, PayAble{
 	 * @return the int representing their comparison
 	 */
 	public int compareTo(Invoice bill) {
-		// if (amount == bill.getAmount()) {
-		// 	return 0;
-		// } else if (amount < bill.getAmount()) {
-		// 	return -1;
-		// } else {
-		// 	return 1;
-		// }
 		return (int)(amount - bill.getAmount());
 	}
 
