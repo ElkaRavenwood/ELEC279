@@ -11,6 +11,12 @@ import java.util.Random;
 public class Lab5 {
 	
 	public static void main (String[] args) {
+		part1();
+		part2();
+
+	}
+
+	public static void part1 () {
 		// random number generator
 		Random r = new Random();
 		
@@ -58,7 +64,15 @@ public class Lab5 {
 		System.out.println("Employees: "  + employees);
 		// print size
 		System.out.println("Employee Size: " + employees.size());
+	}
 
+	public static void part2() {
+		Pair <String> p1 = new Pair <String>("wife1", "husband1");
+		Pair <String> p2 = new Pair <String>("wife23", "husband23");
+		Pair <String> p3 = new Pair <String>("wife23", "husband23");
+
+		System.out.println("p1 and p2 equal: " + p1.equals(p2));
+		System.out.println("p2 and p3 equal: " + p2.equals(p3));
 	}
 
 }
