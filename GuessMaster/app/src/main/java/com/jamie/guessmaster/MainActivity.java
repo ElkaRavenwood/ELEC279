@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     public void addEntity (Entity entity) {
 
         // if empty list
-        if (this.entities == null) {
+        if (this.numberOfCandidateEntities == 0) {
             this.entities = new Entity [++this.numberOfCandidateEntities];
             this.entities[0] = entity;
             // copies over old entities if not empty
@@ -87,9 +87,9 @@ public class MainActivity extends AppCompatActivity {
                 newEntityIndex = r.nextInt(this.numberOfCandidateEntities);
             }
         }
-
+        currentEntity = entities[newEntityIndex];
         // returns the entity
-        return entities[newEntityIndex];
+        return currentEntity;
 
     }
 
@@ -97,19 +97,18 @@ public class MainActivity extends AppCompatActivity {
     public void changeEntity() {
 
         userIn.getText().clear(); // clears user input
-        currentEntity = genRandomEntity();
-        playGame(currentEntity); // changes entity
+        playGame(genRandomEntity()); // changes entity
 
     }
 
     // start of imageSetter
     public void imageSetter(Entity entity) {
         int picture;
-        if (entity.getName().equals("Justin Trudeau")) {
+        if (entity.equals(trudeau)) {
             picture = R.drawable.justint;
-        } else if (entity.getName().equals("Celine Dion")) {
+        } else if (entity.equals(dion)) {
             picture = R.drawable.celidion;
-        } else if (entity.getName().equals("myCreator")) {
+        } else if (entity.equals(myCreator)) {
             picture = R.drawable.mycreator;
         } else {
             picture = R.drawable.usaflag;
@@ -141,7 +140,6 @@ public class MainActivity extends AppCompatActivity {
      * Continues game once submit is
      */
     public void continueGame () {
-        changeEntity();
     }
 
     /**
@@ -151,7 +149,6 @@ public class MainActivity extends AppCompatActivity {
     public void playGame (Entity entity) {
         // checks if entity exists
         if (entity == null) {
-            System.out.println("Invalid entity. Fatal Error");
             System.exit(0);
         }
 
@@ -160,14 +157,7 @@ public class MainActivity extends AppCompatActivity {
         // Print the name off the entity to be guessed to the entityName TextView
         entityName.setText(entity.getName());
 
-        // Welcome message
-        System.out.println(entity.welcomeMessage());
-
-        // introduces game, asks for guess
-        System.out.println("Please guess the birthday of " + entity.getName() + ". Please enter the date in the format of mm/dd/yyyy");
-
         // compares result
-        entityName.setText(entity.getName());
         // Get Input from the EdiText
         answer = userIn.getText().toString();
         answer = answer.replace("\n", "").replace("\r","");
@@ -185,64 +175,62 @@ public class MainActivity extends AppCompatActivity {
 
         // compares
         // if equal
-        if (entity.getBorn().equals(result)) {
-            // increments tickets
-            tickets += entity.getAwardedTicketNumber();
-            // Tickets awarded
-            ticketSum.setText("Total Tickets: " + tickets);
+        if (!answer.equals("")) {
+            if (entity.getBorn().equals(result)) {
+                // increments tickets
+                tickets += entity.getAwardedTicketNumber();
+                // Tickets awarded
+                ticketSum.setText("Total Tickets: " + tickets);
 
-            AlertDialog.Builder win = new AlertDialog.Builder(MainActivity.this);
-            win.setTitle("You Won");
-            win.setMessage("Bingo! " + entity.closingMessage() + "\nYou won " + entity.getAwardedTicketNumber() + " tickets.");
-            win.setCancelable(false); // no cancel button
-            win.setNegativeButton("Continue", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Toast.makeText(getBaseContext(), "Win", Toast.LENGTH_SHORT).show();
-                    continueGame();
-                }
-            });
-            // show dialog
-            AlertDialog dialog = win.create();
-            dialog.show();
+                AlertDialog.Builder win = new AlertDialog.Builder(MainActivity.this);
+                win.setTitle("You Won");
+                win.setMessage("Bingo! " + entity.closingMessage() + "\nYou won " + entity.getAwardedTicketNumber() + " tickets.");
+                win.setCancelable(false); // no cancel button
+                win.setNegativeButton("Continue", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getBaseContext(), "Win", Toast.LENGTH_SHORT).show();
+                        continueGame();
+                    }
+                });
+                // show dialog
+                AlertDialog dialog = win.create();
+                dialog.show();
+                playGame(genRandomEntity());
+                return;
+                // if precedes
+            } else if (entity.getBorn().precedes(result)) {
+                AlertDialog.Builder precede = new AlertDialog.Builder(MainActivity.this);
+                precede.setTitle("Incorrect");
+                precede.setMessage("Incorrect, try an earlier date");
+                precede.setCancelable(false); // no cancel button
+                precede.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getBaseContext(), "Ok", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                // show dialog
+                AlertDialog dialog = precede.create();
+                dialog.show();
 
-            // starts next game
-            currentEntity = genRandomEntity();
-            this.playGame();
-            return;
-
-            // if precedes
-        } else if (entity.getBorn().precedes(result)) {
-            AlertDialog.Builder precede = new AlertDialog.Builder(MainActivity.this);
-            precede.setTitle("Incorrect");
-            precede.setMessage("Incorrect, try an earlier date");
-            precede.setCancelable(false); // no cancel button
-            precede.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Toast.makeText(getBaseContext(), "Ok", Toast.LENGTH_SHORT).show();
-                }
-            });
-            // show dialog
-            AlertDialog dialog = precede.create();
-            dialog.show();
-
-            // if not precedes
-        } else if (!answer.equals("") && entity.getBorn().precedes(result)) {
-            System.out.println("Incorrect, try a later date.");
-            AlertDialog.Builder follow = new AlertDialog.Builder(MainActivity.this);
-            follow.setTitle("Incorrect");
-            follow.setMessage("Incorrect, try a later date");
-            follow.setCancelable(false); // no cancel button
-            follow.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-                @Override
-                public void onClick(DialogInterface dialog, int which) {
-                    Toast.makeText(getBaseContext(), "Ok", Toast.LENGTH_SHORT).show();
-                }
-            });
-            // show dialog
-            AlertDialog dialog = follow.create();
-            dialog.show();
+                // if not precedes
+            } else {
+                System.out.println("Incorrect, try a later date.");
+                AlertDialog.Builder follow = new AlertDialog.Builder(MainActivity.this);
+                follow.setTitle("Incorrect");
+                follow.setMessage("Incorrect, try a later date");
+                follow.setCancelable(false); // no cancel button
+                follow.setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Toast.makeText(getBaseContext(), "Ok", Toast.LENGTH_SHORT).show();
+                    }
+                });
+                // show dialog
+                AlertDialog dialog = follow.create();
+                dialog.show();
+            }
         }
 
     }
@@ -298,7 +286,6 @@ public class MainActivity extends AppCompatActivity {
         addEntity(usa);
         addEntity(myCreator);
         addEntity(trudeau);
-        currentEntity = genRandomEntity();
-        playGame();
+        playGame(genRandomEntity());
     }
 }
