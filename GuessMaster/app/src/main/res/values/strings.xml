@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">GuessMaster</string>
+    <string name="tickets">Total Tickets: 0</string>
+    <string name="btnGuess">Submit Guess</string>
+    <string name="btnClear">Change Entity</string>
+    <string name="guessInput">MM-DD-YY</string>
 </resources>
